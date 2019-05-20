@@ -1,6 +1,10 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const timeStamp = require('./time-stamp')
+
+app.get('/favicon.ico', (req, res) => res.status(204)) // prevent to log favicon request
+app.use(timeStamp)
 
 // 列出全部 Todo
 app.get('/', (req, res) => {
